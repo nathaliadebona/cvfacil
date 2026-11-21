@@ -1,0 +1,18 @@
+
+:root {
+    --cor-fundo: #F6F4EE;
+    --cor-texto: #1B2B34;
+    --cor-texto-secundario: #4A5B63;
+    --cor-destaque: #1F5F6B;
+    --cor-detalhes: #D9A441;
+    --cor-borda: #DAD8CE;
+
+    --fonte-titulo: 'Lora', serif;
+    --fonte-corpo: 'Work Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
