@@ -31,15 +31,20 @@
     <main>
         <h1>Editor de currículo</h1>
 
-        <section>
+        <section class="barra-curriculo">
             <label for="nome-curriculo">Nome do currículo</label>
-            <input type="text" name="nome-curriculo" id="nome-curriculo">
+            <input type="text" name="nome-curriculo" id="nome-curriculo" placeholder="Front-end — Empresa X">
 
             <button type="button" id="salvar-btn">Salvar</button>
             <button type="button" id="baixar-btn">Baixar PDF</button>
         </section>
 
-        <section>
+        <div class="abas">
+            <button type="button" id="editar-btn">Editar</button>
+            <button type="button" id="previa-btn">Pré-visualizar</button>
+        </div>
+
+        <section class="area-formulario">
             <form action="">
                 <fieldset class="dados-pessoais">
                     <legend>Dados pessoais</legend>
@@ -120,6 +125,75 @@
                     </ul>
                 </fieldset>
             </form>
+        </section>
+
+        <section class="area-previa">
+            <h2>Pré-visualização</h2>
+            <a href="modelos.html">Trocar de modelo</a>
+
+            <fieldset class="seletor-tema">
+                <legend>Tema</legend>
+
+                <input type="radio" name="tema" id="petroleo" value="petroleo" checked>
+                <label for="petroleo">Petróleo</label>
+
+                <input type="radio" name="tema" id="mostarda" value="mostarda">
+                <label for="mostarda">Mostarda</label>
+                
+                <input type="radio" name="tema" id="grafite" value="grafite">
+                <label for="grafite">Grafite</label>
+
+                <input type="radio" name="tema" id="musgo" value="musgo">
+                <label for="musgo">Musgo</label>
+            </fieldset>
+
+            <article class="curriculo">
+                <div class="curriculo-cabecalho">
+                    <p id="previa-nome">Ana Souza</p>
+                    <p id="previa-cargo">Desenvolvedora front-end</p>
+
+                    <span id="previa-email">ana@email.com</span>
+                    <span id="previa-telefone">(11) 90000-0000</span>
+                    <span id="previa-cidade">São Paulo, SP</span>
+                    <span id="previa-portfolio">github.com/ana</span>
+                </div>
+
+                <div class="curriculo-resumo">
+                    <p>Resumo</p>
+                    <p id="previa-resumo">Desenvolvedora front-end em formação, com projetos em HTML, CSS e JavaScript. Foco em interfaces claras e acessíveis.</p>
+                </div>
+
+                <div class="curriculo-experiencia">
+                    <p>Experiência</p>
+                    <p id="experiencia-cargo">Assistente de design <span>2024 - 2026</span></p>
+                    <p id="experiencia-descricao">Criei layouts para redes sociais e organizei os materiais da equipe.</p>
+                </div>
+
+                <div class="curriculo-formacao">
+                    <p>Formação</p>
+                    <p id="formacao-curso">Técnico em design gráfico <span>2023</span></p>
+                    <p id="formacao-instituicao">Escola Exemplo</p>
+                </div>
+
+                <div class="curriculo-idiomas">
+                    <p>Idiomas</p>
+
+                    <ul>
+                        <li>Inglês (intermediário)</li>
+                    </ul>
+                </div>
+
+                <div class="curriculo-habilidades">
+                    <p>Habilidades</p>
+
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        <li>Git</li>
+                    </ul>
+                </div>
+            </article>
         </section>
     </main>
 
