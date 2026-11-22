@@ -18,11 +18,18 @@
 }
 
 body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     font-family: var(--fonte-corpo);
     font-size: 1rem;
     line-height: 1.6;
     color: var(--cor-texto);
     background-color: var(--cor-fundo);
+}
+
+main {
+    flex: 1;
 }
 
 a {
@@ -102,4 +109,26 @@ header {
 .menu a.ativo {
     border-left: 0.25rem solid var(--cor-detalhes);
     color: var(--cor-destaque);
+}
+
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 2rem 1rem;
+    border-top: 0.0625rem solid var(--cor-borda);
+    text-align: center;
+}
+
+footer span {
+    font-family: var(--fonte-titulo);
+    font-size: 1.5rem;
+    color: var(--cor-destaque);
+}
+
+footer p {
+    font-size: 0.875rem;
+    color: var(--cor-texto-secundario);
 }
