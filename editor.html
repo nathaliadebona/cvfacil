@@ -29,7 +29,98 @@
     </header>
 
     <main>
+        <h1>Editor de currículo</h1>
 
+        <section>
+            <label for="nome-curriculo">Nome do currículo</label>
+            <input type="text" name="nome-curriculo" id="nome-curriculo">
+
+            <button type="button" id="salvar-btn">Salvar</button>
+            <button type="button" id="baixar-btn">Baixar PDF</button>
+        </section>
+
+        <section>
+            <form action="">
+                <fieldset class="dados-pessoais">
+                    <legend>Dados pessoais</legend>
+
+                    <div class="campo">
+                        <label for="nome">Nome completo</label>
+                        <input type="text" name="nome" id="nome" required placeholder="Ana Souza">
+                    </div>
+
+                    <div class="campo">
+                        <label for="cargo-desejado">Cargo desejado</label>
+                        <input type="text" name="cargo-desejado" id="cargo-desejado" required placeholder="Desenvolvedora front-end">
+                    </div>
+
+                    <div class="campo">
+                        <label for="email">E-mail</label>
+                        <input type="email" name="email" id="email" required placeholder="ana@email.com">
+                    </div>
+
+                    <div class="campo">
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" name="telefone" id="telefone" required placeholder="(11) 90000-0000">
+                    </div>
+
+                    <div class="campo">
+                        <label for="cidade">Cidade</label>
+                        <input type="text" name="cidade" id="cidade" required placeholder="São Paulo, SP">
+                    </div>
+
+                    <div class="campo">
+                        <label for="portfolio">Portfólio ou LinkedIn</label>
+                        <input type="text" name="portfolio" id="portfolio" placeholder="github.com/ana">
+                    </div>
+                </fieldset>
+
+                <fieldset class="resumo">
+                    <legend>Resumo</legend>
+
+                    <div class="campo">
+                        <label for="resumo">Em 3 ou 4 linhas, conte quem você é e o que busca.</label>
+                        <textarea name="resumo" id="resumo" placeholder="Desenvolvedora front-end em formação, com projetos em HTML, CSS e JavaScript."></textarea>
+                    </div>
+                </fieldset>
+
+                <fieldset class="experiencia">
+                    <legend>Experiência</legend>
+
+                    <button type="button" id="experiencia-btn">Adicionar</button>
+                </fieldset>
+
+                <fieldset class="formacao">
+                    <legend>Formação</legend>
+
+                    <button type="button" id="formacao-btn">Adicionar</button>
+                </fieldset>
+
+                <fieldset class="idiomas">
+                    <legend>Idiomas</legend>
+
+                    <button type="button" id="idioma-btn">Adicionar</button>
+                </fieldset>
+
+                <fieldset class="habilidades">
+                    <legend>Habilidades</legend>
+
+                    <div class="campo">
+                        <label for="nova-habilidade">Nova habilidade</label>
+                        <input type="text" name="nova-habilidade" id="nova-habilidade">
+                    </div>
+
+                    <button type="button" id="nova-hab-btn">Adicionar</button>
+
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        <li>Git</li>
+                    </ul>
+                </fieldset>
+            </form>
+        </section>
     </main>
 
     <footer>
