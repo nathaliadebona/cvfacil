@@ -53,6 +53,26 @@ button {
     font-family: inherit;
 }
 
+.botao-principal,
+.botao-secundario {
+    display: block;
+    padding: 0.875rem 1.5rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+.botao-principal {
+    color: #fff;
+    background-color: var(--cor-destaque);
+}
+
+.botao-secundario {
+    border: 0.0625rem solid var(--cor-destaque);
+    color: var(--cor-destaque);
+    background-color: transparent;
+}
+
 header {
     position: relative;
     display: flex;
@@ -110,7 +130,6 @@ header {
     border-left: 0.25rem solid var(--cor-detalhes);
     color: var(--cor-destaque);
 }
-
 
 footer {
     display: flex;
