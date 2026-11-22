@@ -16,3 +16,32 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    font-family: var(--fonte-corpo);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+h1, h2, h3 {
+    font-family: var(--fonte-titulo);
+    font-weight: 500;
+}
+
+input,
+textarea,
+select,
+button {
+    font-family: inherit;
+}
