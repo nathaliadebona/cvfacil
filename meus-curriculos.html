@@ -29,7 +29,72 @@
     </header>
 
     <main>
+        <h1>Meus currículos</h1>
+        <p>Uma versão para cada vaga. Abra, duplique ou apague quando quiser.</p>
 
+        <a href="editor.html">Novo currículo</a>
+
+        <label for="busca">Buscar por nome</label>
+        <input type="search" name="busca" id="busca">
+
+        <label for="ordenacao">Ordenar por</label>
+        <select name="ordenacao" id="ordenacao">
+            <option value="recentes">Mais recentes</option>
+            <option value="az">Nome (A a Z)</option>
+        </select>
+
+        <section class="curriculos-lista">
+            <ul>
+                <li>
+                    <article class="curriculo-card" data-id="1">
+                        <div class="miniatura"></div>
+
+                        <h2>Front-end — Empresa X</h2>
+                        <p>editado há 2 dias</p>
+                        <span>Clássico petróleo</span>
+
+                        <a href="editor.html">Editar</a>
+                        <button type="button" class="duplicar-btn">Duplicar</button>
+                        <button type="button" class="apagar-btn">Apagar</button>
+                    </article>
+                </li>
+
+                <li>
+                    <article class="curriculo-card" data-id="2">
+                        <div class="miniatura"></div>
+
+                        <h2>Assistente virtual — Vaga Y</h2>
+                        <p>editado há 1 semana</p>
+                        <span>Lateral mostarda</span>
+
+                        <a href="editor.html">Editar</a>
+                        <button type="button" class="duplicar-btn">Duplicar</button>
+                        <button type="button" class="apagar-btn">Apagar</button>
+                    </article>
+                </li>
+
+                <li>
+                    <article class="curriculo-card" data-id="3">
+                        <div class="miniatura"></div>
+
+                        <h2>Versão geral</h2>
+                        <p>editado há 3 semanas</p>
+                        <span>Faixa grafite</span>
+
+                        <a href="editor.html">Editar</a>
+                        <button type="button" class="duplicar-btn">Duplicar</button>
+                        <button type="button" class="apagar-btn">Apagar</button>
+                    </article>
+                </li>
+
+                <li>
+                    <article class="curriculo-card">
+                        <h2>Começar um novo</h2>
+                        <a href="editor.html">Do zero ou a partir de um modelo</a>
+                    </article>
+                </li>
+            </ul>
+        </section>
     </main>
 
     <footer>
