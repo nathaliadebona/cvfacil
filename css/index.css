@@ -128,3 +128,28 @@
     color: var(--cor-texto);
 }
 
+.cta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    margin: 0 1.5rem 2.5rem;
+    padding: 1.75rem 1.5rem;
+    border-radius: 1rem;
+    color: #fff;
+    background-color: var(--cor-destaque);
+}
+
+.cta h2 {
+    font-size: 1.625rem;
+    line-height: 1.2;
+}
+
+.cta p {
+    font-size: 0.9375rem;
+    color: #E1EEF0;
+}
+
+.cta .botao-principal {
+    color: var(--cor-texto);
+    background-color: var(--cor-detalhes);
+}
