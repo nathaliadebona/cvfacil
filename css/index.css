@@ -19,3 +19,62 @@
 .introducao p {
     color: var(--cor-texto-secundario);
 }
+
+.exemplo {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    border: 0.0625rem solid var(--cor-borda);
+    border-radius: 0.5rem;
+    background-color: #fff;
+    box-shadow: 0 0.25rem 1rem rgba(27, 43, 52, 0.08);
+}
+
+.cabecalho-exemplo {
+    gap: 0.125rem;
+}
+
+.resumo-exemplo,
+.experiencia-exemplo,
+.habilidades-exemplo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.cabecalho-exemplo p:first-child {
+    font-family: var(--fonte-titulo);
+    font-size: 1.5rem;
+}
+
+.cabecalho-exemplo p:last-child {
+    color: var(--cor-destaque);
+}
+
+.resumo-exemplo p:first-child,
+.experiencia-exemplo p:first-child,
+.habilidades-exemplo p:first-child {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.0625rem;
+    color: #5A3F0A;
+}
+
+.experiencia-exemplo span {
+    font-size: 0.75rem;
+    color: var(--cor-texto-secundario);
+}
+
+.habilidades-exemplo ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.habilidades-exemplo li {
+    padding: 0.2rem 0.8rem;
+    border-radius: 999px;
+    background-color: #DCE9EB;
+    color: #174850;
+}
