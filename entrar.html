@@ -29,7 +29,66 @@
     </header>
 
     <main>
+        <section class="entrar-intro">
+            <h1>Guarde seus currículos e volte neles quando quiser</h1>
+            
+            <ul>
+                <li>Salve quantas versões quiser, uma para cada vaga</li>
+                <li>Duplique um currículo e adapte em poucos minutos</li>
+                <li>Acesse de qualquer dispositivo</li>
+            </ul>
+        </section>
 
+        <section class="entrar-card">
+            <div class="abas-entrar">
+                <button type="button" id="entrar-btn">Entrar</button>
+                <button type="button" id="criar-btn">Criar conta</button>
+            </div>
+
+            <form action="" id="form-entrar">
+                <div class="campo">
+                    <label for="entrar-email">E-mail</label>
+                    <input type="email" name="entrar-email" id="entrar-email" required>
+                </div>
+
+                <div class="campo">
+                    <label for="entrar-senha">Senha</label>
+                    <input type="password" name="entrar-senha" id="entrar-senha" required>
+                </div>
+
+                <button type="submit">Entrar</button>
+            </form>
+
+            <form action="" id="form-criar">
+                <div class="campo">
+                    <label for="criar-nome">Nome</label>
+                    <input type="text" name="criar-nome" id="criar-nome" required>
+                </div>
+
+                <div class="campo">
+                    <label for="criar-email">E-mail</label>
+                    <input type="email" name="criar-email" id="criar-email" required>
+                </div>
+
+                <div class="campo">
+                    <label for="criar-senha">Senha</label>
+                    <input type="password" name="criar-senha" id="criar-senha" minlength="6" required>
+                </div>
+
+                <div class="campo">
+                    <label for="confirmar-senha">Confirme a senha</label>
+                    <input type="password" name="confirmar-senha" id="confirmar-senha" required>
+                </div>
+
+                <button type="submit">Criar conta</button>
+            </form>
+        </section>
+
+        <section class="entrar-visitante">
+            <p>Prefere não criar conta agora?</p>
+            <a href="editor.html">Continuar como visitante</a>
+            <p>Você cria e baixa o currículo na hora. Só não guardamos para depois.</p>
+        </section>
     </main>
 
     <footer>
