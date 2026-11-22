@@ -45,3 +45,61 @@ select,
 button {
     font-family: inherit;
 }
+
+header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 0.0625rem solid var(--cor-borda);
+}
+
+.logo {
+    font-family: var(--fonte-titulo);
+    font-size: 1.5rem;
+    color: var(--cor-destaque);
+}
+
+.botao-menu {
+    width: 2.75rem;
+    height: 2.75rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.botao-menu i {
+    font-size: 1.5rem;
+    color: var(--cor-texto);
+}
+
+.menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    width: 100%;
+    z-index: 10;
+    border: 0.0625rem solid var(--cor-borda);
+    background-color: var(--cor-fundo);
+}
+
+.menu.aberto {
+    display: block;
+}
+
+.menu ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu a {
+    display: block;
+    padding: 1.5rem;
+}
+
+.menu a.ativo {
+    border-left: 0.25rem solid var(--cor-detalhes);
+    color: var(--cor-destaque);
+}
