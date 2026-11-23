@@ -11,6 +11,22 @@
     --fonte-corpo: 'Work Sans', sans-serif;
 }
 
+[data-tema="petroleo"] {
+    --cor-tema: #1F5F6B;
+}
+
+[data-tema="mostarda"] {
+    --cor-tema: #D9A441;
+}
+
+[data-tema="grafite"] {
+    --cor-tema: #3B4A52;
+}
+
+[data-tema="musgo"] {
+    --cor-tema: #6B8F71;
+}
+
 * {
     margin: 0;
     padding: 0;

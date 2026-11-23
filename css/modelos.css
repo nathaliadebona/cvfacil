@@ -63,7 +63,10 @@ main {
 }
 
 .miniatura {
+    display: flex;
+    justify-content: center;
     height: 11.875rem;
+    padding: 0.625rem;
     border-radius: 0.375rem;
     background-color: var(--cor-fundo);
 }
@@ -71,4 +74,72 @@ main {
 .modelo-card a {
     padding: 0.6875rem 0.5rem;
     font-size: 0.875rem;
+}
+
+.folha {
+    display: flex;
+    width: 7rem;
+    height: 100%;
+    border: 0.0625rem solid var(--cor-borda);
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.destaque {
+    background-color: var(--cor-tema);
+}
+
+.conteudo {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 0.3125rem;
+    padding: 0.5625rem;
+}
+
+.conteudo span {
+    display: block;
+    height: 0.25rem;
+    border-radius: 0.125rem;
+    background-color: #E4E3DA;
+}
+
+.conteudo span:first-child {
+    height: 0.5rem;
+    width: 55%;
+    background-color: var(--cor-texto);
+}
+
+.conteudo span:nth-child(3) {
+    width: 85%;
+}
+
+.conteudo span:nth-child(4) {
+    width: 60%;
+}
+
+.modelo-card[data-tipo="faixa"] .folha {
+    flex-direction: column;
+}
+
+.modelo-card[data-tipo="faixa"] .destaque {
+    height: 2.5rem;
+}
+
+.modelo-card[data-tipo="lateral"] .folha {
+    flex-direction: row;
+}
+
+.modelo-card[data-tipo="lateral"] .destaque {
+    width: 34%;
+}
+
+.modelo-card[data-tipo="classico"] .folha {
+    flex-direction: column;
+}
+
+.modelo-card[data-tipo="classico"] .destaque {
+    height: 0.25rem;
+    width: 40%;
+    margin: 0.5625rem 0 0.5625rem 0.5625rem;
 }
