@@ -86,12 +86,15 @@ button {
     padding: 0.875rem 1.5rem;
     border-radius: 0.5rem;
     text-align: center;
+    font-size: 1rem;
     font-weight: 500;
 }
 
 .botao-principal {
+    border: none;
     color: #fff;
     background-color: var(--cor-destaque);
+    cursor: pointer;
 }
 
 .botao-secundario {
@@ -185,4 +188,8 @@ footer p {
     height: 0.0625rem;
     overflow: hidden;
     clip: rect(0 0 0 0);
+}
+
+.escondido {
+    display: none !important;
 }

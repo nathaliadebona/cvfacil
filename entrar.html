@@ -12,6 +12,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/entrar.css">
 </head>
 <body>
     <header>
@@ -46,14 +47,14 @@
 
         <section class="entrar-card">
             <div class="abas-entrar">
-                <button type="button" id="entrar-btn">Entrar</button>
+                <button type="button" id="entrar-btn" class="ativo">Entrar</button>
                 <button type="button" id="criar-btn">Criar conta</button>
             </div>
 
             <form action="" id="form-entrar">
                 <div class="campo">
                     <label for="entrar-email">E-mail</label>
-                    <input type="email" name="entrar-email" id="entrar-email" required>
+                    <input type="email" name="entrar-email" id="entrar-email" required placeholder="voce@email.com">
                 </div>
 
                 <div class="campo">
@@ -61,10 +62,10 @@
                     <input type="password" name="entrar-senha" id="entrar-senha" required>
                 </div>
 
-                <button type="submit">Entrar</button>
+                <button type="submit" class="botao-principal">Entrar</button>
             </form>
 
-            <form action="" id="form-criar">
+            <form action="" id="form-criar" class="escondido">
                 <div class="campo">
                     <label for="criar-nome">Nome</label>
                     <input type="text" name="criar-nome" id="criar-nome" required>
@@ -72,12 +73,12 @@
 
                 <div class="campo">
                     <label for="criar-email">E-mail</label>
-                    <input type="email" name="criar-email" id="criar-email" required>
+                    <input type="email" name="criar-email" id="criar-email" required placeholder="voce@email.com">
                 </div>
 
                 <div class="campo">
                     <label for="criar-senha">Senha</label>
-                    <input type="password" name="criar-senha" id="criar-senha" minlength="6" required>
+                    <input type="password" name="criar-senha" id="criar-senha" minlength="6" required placeholder="Mínimo de 6 caracteres">
                 </div>
 
                 <div class="campo">
@@ -85,13 +86,13 @@
                     <input type="password" name="confirmar-senha" id="confirmar-senha" required>
                 </div>
 
-                <button type="submit">Criar conta</button>
+                <button type="submit" class="botao-principal">Criar conta</button>
             </form>
         </section>
 
         <section class="entrar-visitante">
             <p>Prefere não criar conta agora?</p>
-            <a href="editor.html">Continuar como visitante</a>
+            <a href="editor.html" class="botao-secundario">Continuar como visitante</a>
             <p>Você cria e baixa o currículo na hora. Só não guardamos para depois.</p>
         </section>
     </main>
