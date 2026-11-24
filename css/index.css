@@ -5,6 +5,12 @@
     padding: 2rem 1.5rem;
 }
 
+.hero-botoes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+}
+
 .introducao {
     display: flex;
     flex-direction: column;
@@ -152,4 +158,100 @@
 .cta .botao-principal {
     color: var(--cor-texto);
     background-color: var(--cor-detalhes);
+}
+
+@media (min-width: 64rem) {
+    .hero {
+        flex-direction: row;
+        align-items: center;
+        gap: 3.5rem;
+        padding: 5.5rem 3rem 4rem;
+    }
+
+    .introducao {
+        flex: 1;
+        min-width: 0;
+        gap: 1.5rem;
+    }
+
+    .introducao h1 {
+        font-size: 3.75rem;
+        line-height: 1.08;
+    }
+
+    .introducao p {
+        max-width: 32.5rem;
+        font-size: 1.125rem;
+    }
+
+    .hero-botoes {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 0.5rem;
+    }
+
+    .hero-botoes a {
+        padding: 0.875rem 1.75rem;
+    }
+
+    .exemplo {
+        flex: 1;
+        max-width: 25rem;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .como-funciona {
+        padding: 1.5rem 3rem 4.5rem;
+    }
+
+    .como-funciona h2 {
+        font-size: 2.25rem;
+    }
+
+    .como-funciona ol {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .como-funciona li {
+        gap: 0.75rem;
+        padding: 1.75rem;
+        font-size: 1rem;
+    }
+
+    .como-funciona li::before {
+        font-size: 2.5rem;
+    }
+
+    .como-funciona li span {
+        font-size: 1.375rem;
+    }
+
+    .cta {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        column-gap: 1.5rem;
+        row-gap: 0.5rem;
+        align-items: center;
+        margin: 0 3rem 5.5rem;
+        padding: 3rem;
+    }
+
+    .cta h2 {
+        font-size: 2rem;
+    }
+
+    .cta p {
+        font-size: 1rem;
+    }
+
+    .cta a {
+        grid-column: 2;
+        grid-row: 1 / 3;
+        padding: 0.875rem 1.75rem;
+    }
 }
