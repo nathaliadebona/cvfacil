@@ -3,15 +3,18 @@ const previaBtn = document.getElementById('previa-btn');
 const novaHabilidade = document.getElementById('nova-habilidade');
 const novaHabBtn = document.getElementById('nova-hab-btn');
 const experienciaBtn = document.getElementById('experiencia-btn');
+const modeloExperiencia = document.getElementById('modelo-experiencia');
 
 const areaForm = document.querySelector('.area-formulario');
 const areaPrevia = document.querySelector('.area-previa');
 const curriculo = document.querySelector('.curriculo');
 const habilidadesLista = document.querySelector('.habilidades ul');
 const curriculoHabLista = document.querySelector('.curriculo-habilidades ul');
-const camposExperiencia = document.querySelector('.campos-experiencia');
+const listaExperiencias = document.querySelector('.lista-experiencias');
 
 const bolinhasTema = document.querySelectorAll('.seletor-tema input');
+
+let totalExperiencias = 0;
 
 function mostrarArea(areaAtiva, areaInativa, botaoAtivo, botaoInativo) {
     areaInativa.classList.add('aba-inativa');
@@ -64,11 +67,30 @@ novaHabBtn.addEventListener('click', () => {
 });
 
 experienciaBtn.addEventListener('click', () => {
-    camposExperiencia.classList.remove('escondido');
-    experienciaBtn.classList.add('escondido');
+    totalExperiencias++;
 
-    const expCargo = document.getElementById('exp-cargo');
-    expCargo.focus();
+    const grupo = modeloExperiencia.content.cloneNode(true);
+
+    const campoCargo = grupo.querySelector('.campo-cargo');
+    const labelCargo = campoCargo.previousElementSibling;
+
+    campoCargo.id = 'exp-cargo-' + totalExperiencias;
+    labelCargo.htmlFor = campoCargo.id;
+
+    const campoPeriodo = grupo.querySelector('.campo-periodo');
+    const labelPeriodo = campoPeriodo.previousElementSibling;
+
+    campoPeriodo.id = 'exp-periodo-' + totalExperiencias;
+    labelPeriodo.htmlFor = campoPeriodo.id;
+
+    const campoDescricao = grupo.querySelector('.campo-descricao');
+    const labelDescricao = campoDescricao.previousElementSibling;
+
+    campoDescricao.id = 'exp-descricao-' + totalExperiencias;
+    labelDescricao.htmlFor = campoDescricao.id;
+
+    listaExperiencias.appendChild(grupo);
+    campoCargo.focus();
 });
 
 ligarCampo('nome', 'previa-nome');
@@ -78,8 +100,5 @@ ligarCampo('telefone', 'previa-telefone');
 ligarCampo('cidade', 'previa-cidade');
 ligarCampo('portfolio', 'previa-portfolio');
 ligarCampo('resumo', 'previa-resumo');
-ligarCampo('exp-cargo', 'previa-exp-cargo');
-ligarCampo('exp-periodo', 'previa-exp-periodo');
-ligarCampo('exp-descricao', 'experiencia-descricao');
 
 
