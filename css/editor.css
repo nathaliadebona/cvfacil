@@ -134,6 +134,11 @@ main {
     padding: 1rem 1.25rem 2.5rem;
 }
 
+.area-previa.aba-inativa,
+.area-formulario.aba-inativa {
+    display: none;
+}
+
 .previa-topo {
     display: flex;
     align-items: center;
@@ -322,6 +327,14 @@ main {
 
     .area-previa {
         padding: 2rem 3rem 4rem 0;
+    }
+
+    .area-previa.aba-inativa {
+        display: flex;
+    }
+
+    .area-formulario.aba-inativa {
+        display: block;
     }
 
     .curriculo {
