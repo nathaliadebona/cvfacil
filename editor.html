@@ -102,6 +102,23 @@
                 <fieldset class="experiencia">
                     <legend>Experiência</legend>
 
+                    <div class="campos-experiencia escondido">
+                        <div class="campo">
+                            <label for="exp-cargo">Cargo e empresa</label>
+                            <input type="text" name="exp-cargo" id="exp-cargo" placeholder="Assistente de design">
+                        </div>
+
+                        <div class="campo">
+                            <label for="exp-periodo">Período</label>
+                            <input type="text" name="exp-periodo" id="exp-periodo" placeholder="2024 - 2026">
+                        </div>
+
+                        <div class="campo">
+                            <label for="exp-descricao">Descrição</label>
+                            <textarea name="exp-descricao" id="exp-descricao" placeholder="Criei layouts para redes sociais e organizei os materiais da equipe."></textarea>
+                        </div>
+                    </div>
+
                     <button type="button" id="experiencia-btn" class="adicionar-btn">Adicionar</button>
                 </fieldset>
 
@@ -177,7 +194,7 @@
 
                 <div class="curriculo-experiencia">
                     <p>Experiência</p>
-                    <p id="experiencia-cargo">Assistente de design <span>2024 - 2026</span></p>
+                    <p id="experiencia-cargo"><span id="previa-exp-cargo">Assistente de design</span> <span id="previa-exp-periodo">2024 - 2026</span></p>
                     <p id="experiencia-descricao">Criei layouts para redes sociais e organizei os materiais da equipe.</p>
                 </div>
 

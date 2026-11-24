@@ -252,8 +252,8 @@ main {
     font-weight: 500;
 }
 
-#experiencia-cargo span,
-#formacao-curso span {
+#experiencia-cargo span:last-child,
+#formacao-curso span:last-child {
     font-weight: 400;
     color: var(--cor-texto-secundario);
 }
@@ -270,6 +270,12 @@ main {
     font-size: 0.75rem;
     color: var(--cor-texto);
     background-color: color-mix(in srgb, var(--cor-tema) 15%, white);
+}
+
+.campos-experiencia {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
 }
 
 @media (min-width: 64rem) {
