@@ -46,6 +46,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 0.625rem;
+    height: 100%;
     padding: 0.75rem;
     border: 0.0625rem solid var(--cor-borda);
     border-radius: 0.75rem;
@@ -72,6 +73,7 @@ main {
 }
 
 .modelo-card a {
+    margin-top: auto;
     padding: 0.6875rem 0.5rem;
     font-size: 0.875rem;
 }
@@ -197,4 +199,63 @@ main {
 
 .modelo-card[data-tipo="classico"] .destaque span:nth-child(3) {
     display: none;
+}
+
+@media (min-width: 64rem) {
+    main {
+        padding: 3.5rem 3rem 5rem;
+    }
+
+    .intro-modelos h1 {
+        font-size: 3rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .intro-modelos p {
+        font-size: 1.0625rem;
+        max-width: 35rem;
+        margin-bottom: 2rem;
+    }
+
+    .filtros {
+        gap: 0.625rem;
+        margin-bottom: 2rem;
+    }
+
+    .filtros button {
+        padding: 0.5rem 1.125rem;
+    }
+
+    .modelos-opcoes {
+        grid-template-columns: repeat(auto-fill, minmax(18.75rem, 1fr));
+        gap: 1.75rem;
+    }
+
+    .modelo-card {
+        gap: 1rem;
+        padding: 1.25rem;
+    }
+
+    .modelo-card h2 {
+        font-size: 1.375rem;
+    }
+
+    .modelo-card p {
+        font-size: 0.875rem;
+        line-height: 1.5;
+    }
+
+    .miniatura {
+        height: 17.5rem;
+        padding: 1rem;
+    }
+
+    .folha {
+        width: 11.875rem;
+    }
+
+    .modelo-card a {
+        padding: 0.6875rem 1rem;
+        font-size: 0.9375rem;
+    }
 }
