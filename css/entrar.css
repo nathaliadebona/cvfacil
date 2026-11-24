@@ -55,17 +55,6 @@ main {
     gap: 1.125rem;
 }
 
-.campo {
-    display: flex;
-    flex-direction: column;
-    gap: 0.375rem;
-}
-
-.campo label {
-    font-size: 0.8125rem;
-    font-weight: 500;
-}
-
 .entrar-visitante {
     display: flex;
     flex-direction: column;

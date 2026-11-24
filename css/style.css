@@ -80,6 +80,19 @@ button {
     font-family: inherit;
 }
 
+textarea {
+    width: 100%;
+    min-height: 7.5rem;
+    padding: 0.625rem 0.75rem;
+    border: 0.0625rem solid #BFC3BE;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--cor-texto);
+    background-color: #fff;
+    resize: none;
+}
+
 .botao-principal,
 .botao-secundario {
     display: block;
@@ -192,4 +205,15 @@ footer p {
 
 .escondido {
     display: none !important;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+}
+
+.campo label {
+    font-size: 0.8125rem;
+    font-weight: 500;
 }
