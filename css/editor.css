@@ -272,10 +272,17 @@ main {
     background-color: color-mix(in srgb, var(--cor-tema) 15%, white);
 }
 
-.campos-experiencia {
+.lista-experiencias,
+.grupo-experiencia {
     display: flex;
     flex-direction: column;
     gap: 0.875rem;
+}
+
+.grupo-experiencia {
+    padding: 1rem;
+    border: 0.0625rem solid var(--cor-borda);
+    border-radius: 0.5rem;
 }
 
 @media (min-width: 64rem) {
