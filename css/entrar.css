@@ -77,3 +77,61 @@ main {
     line-height: 1.5;
     color: var(--cor-texto-secundario);
 }
+
+@media (min-width: 64rem) {
+    main {
+        display: grid;
+        grid-template-columns: 1fr minmax(0, 28.75rem);
+        column-gap: 4rem;
+        row-gap: 1.25rem;
+        align-items: start;
+        align-content: center;
+        padding: 4.5rem 3rem 5.5rem;
+    }
+
+    .entrar-intro {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        grid-column: 1;
+        grid-row: 1 / 3;
+        align-self: center;
+    }
+
+    .entrar-intro h1 {
+        font-size: 3rem;
+        line-height: 1.1;
+    }
+
+    .entrar-intro ul {
+        display: flex;
+        flex-direction: column;
+        gap: 0.875rem;
+        line-height: 1.5;
+    }
+
+    .entrar-intro li {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .entrar-intro li::before {
+        content: '';
+        flex: none;
+        width: 0.625rem;
+        height: 0.625rem;
+        margin-top: 0.4375rem;
+        border-radius: 50%;
+        background-color: var(--cor-detalhes);
+    }
+
+    .entrar-card {
+        grid-column: 2;
+        padding: 2rem;
+    }
+
+    .entrar-visitante {
+        grid-column: 2;
+    }
+}
