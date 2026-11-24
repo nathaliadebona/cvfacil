@@ -138,26 +138,28 @@
         </section>
 
         <section class="area-previa">
-            <h2>Pré-visualização</h2>
-            <a href="modelos.html">Trocar de modelo</a>
+            <h2 class="visualmente-oculto">Pré-visualização</h2>
+            
+            <div class="previa-topo">
+                <fieldset class="seletor-tema">
+                    <legend>Tema</legend>
+                    <input type="radio" name="tema" id="petroleo" value="petroleo" checked data-tema="petroleo">
+                    <label for="petroleo" class="visualmente-oculto">Petróleo</label>
 
-            <fieldset class="seletor-tema">
-                <legend>Tema</legend>
-
-                <input type="radio" name="tema" id="petroleo" value="petroleo" checked>
-                <label for="petroleo">Petróleo</label>
-
-                <input type="radio" name="tema" id="mostarda" value="mostarda">
-                <label for="mostarda">Mostarda</label>
+                    <input type="radio" name="tema" id="mostarda" value="mostarda" data-tema="mostarda">
+                    <label for="mostarda" class="visualmente-oculto">Mostarda</label>
                 
-                <input type="radio" name="tema" id="grafite" value="grafite">
-                <label for="grafite">Grafite</label>
+                    <input type="radio" name="tema" id="grafite" value="grafite" data-tema="grafite">
+                    <label for="grafite" class="visualmente-oculto">Grafite</label>
 
-                <input type="radio" name="tema" id="musgo" value="musgo">
-                <label for="musgo">Musgo</label>
-            </fieldset>
+                    <input type="radio" name="tema" id="musgo" value="musgo" data-tema="musgo">
+                    <label for="musgo" class="visualmente-oculto">Musgo</label>
+                </fieldset>
 
-            <article class="curriculo">
+                <a href="modelos.html">Trocar de modelo</a>
+            </div>
+
+            <article class="curriculo" data-tema="petroleo">
                 <div class="curriculo-cabecalho">
                     <p id="previa-nome">Ana Souza</p>
                     <p id="previa-cargo">Desenvolvedora front-end</p>

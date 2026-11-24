@@ -126,3 +126,145 @@ main {
     color: #174850;
     background-color: #DCE9EB;
 }
+
+.area-previa {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 1.25rem 2.5rem;
+}
+
+.previa-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.625rem;
+}
+
+.previa-topo a {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--cor-destaque);
+}
+
+.seletor-tema {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: none;
+}
+
+.seletor-tema legend {
+    float: left;
+    margin-right: 0.5rem;
+    padding: 0;
+    font-size: 0.8125rem;
+    font-weight: 500;
+}
+
+.seletor-tema input {
+    appearance: none;
+    width: 1.75rem;
+    height: 1.75rem;
+    border: 0.1875rem solid #fff;
+    border-radius: 50%;
+    background-color: var(--cor-tema);
+    box-shadow: 0 0 0 0.0625rem var(--cor-borda);
+    cursor: pointer;
+}
+
+.seletor-tema input:checked {
+    box-shadow: 0 0 0 0.125rem var(--cor-texto);
+}
+
+.curriculo {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.75rem 1.5rem;
+    border: 0.0625rem solid var(--cor-borda);
+    border-radius: 0.25rem;
+    background-color: #fff;
+}
+
+.curriculo-cabecalho {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 0.1875rem solid var(--cor-tema);
+}
+
+.curriculo-cabecalho p {
+    width: 100%;
+}
+
+.curriculo-cabecalho p:first-child {
+    font-family: var(--fonte-titulo);
+    font-size: 1.875rem;
+    line-height: 1.1;
+}
+
+.curriculo-cabecalho p:last-of-type {
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+    color: var(--cor-tema);
+}
+
+.curriculo-cabecalho span {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    color: var(--cor-texto-secundario);
+}
+
+.curriculo-resumo,
+.curriculo-experiencia,
+.curriculo-formacao,
+.curriculo-idiomas,
+.curriculo-habilidades {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+    font-size: 0.8125rem;
+    line-height: 1.6;
+}
+
+.curriculo-resumo p:first-child,
+.curriculo-experiencia p:first-child,
+.curriculo-formacao p:first-child,
+.curriculo-idiomas p:first-child,
+.curriculo-habilidades p:first-child {
+    font-family: var(--fonte-titulo);
+    font-size: 1.125rem;
+    font-style: italic;
+}
+
+#experiencia-cargo,
+#formacao-curso {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    font-weight: 500;
+}
+
+#experiencia-cargo span,
+#formacao-curso span {
+    font-weight: 400;
+    color: var(--cor-texto-secundario);
+}
+
+.curriculo-habilidades ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+}
+
+.curriculo-habilidades li {
+    padding: 0.1875rem 0.625rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    color: var(--cor-texto);
+    background-color: color-mix(in srgb, var(--cor-tema) 15%, white);
+}
+
+
