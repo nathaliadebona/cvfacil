@@ -15,6 +15,7 @@ main {
 
 .meus-curriculos-intro p {
     margin-bottom: 1rem;
+    color: var(--cor-texto-secundario);
 }
 
 .meus-curriculos-intro a {
@@ -161,7 +162,6 @@ main {
     .meus-curriculos-intro p {
         margin-bottom: 0;
         font-size: 1.0625rem;
-        color: var(--cor-texto-secundario);
     }
 
     .controles {
