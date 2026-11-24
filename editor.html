@@ -12,6 +12,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/editor.css">
 </head>
 <body>
     <header>
@@ -34,18 +35,22 @@
     </header>
 
     <main>
-        <h1>Editor de currículo</h1>
+        <h1 class="visualmente-oculto">Editor de currículo</h1>
 
         <section class="barra-curriculo">
-            <label for="nome-curriculo">Nome do currículo</label>
-            <input type="text" name="nome-curriculo" id="nome-curriculo" placeholder="Front-end — Empresa X">
+            <div class="campo">
+                <label for="nome-curriculo">Nome do currículo</label>
+                <input type="text" name="nome-curriculo" id="nome-curriculo" placeholder="Front-end — Empresa X">
+            </div>
 
-            <button type="button" id="salvar-btn">Salvar</button>
-            <button type="button" id="baixar-btn">Baixar PDF</button>
+            <div class="barra-acoes">
+                <button type="button" id="salvar-btn" class="botao-secundario">Salvar</button>
+                <button type="button" id="baixar-btn" class="botao-principal">Baixar PDF</button>
+            </div>
         </section>
 
         <div class="abas">
-            <button type="button" id="editar-btn">Editar</button>
+            <button type="button" id="editar-btn" class="ativo">Editar</button>
             <button type="button" id="previa-btn">Pré-visualizar</button>
         </div>
 
@@ -97,19 +102,19 @@
                 <fieldset class="experiencia">
                     <legend>Experiência</legend>
 
-                    <button type="button" id="experiencia-btn">Adicionar</button>
+                    <button type="button" id="experiencia-btn" class="adicionar-btn">Adicionar</button>
                 </fieldset>
 
                 <fieldset class="formacao">
                     <legend>Formação</legend>
 
-                    <button type="button" id="formacao-btn">Adicionar</button>
+                    <button type="button" id="formacao-btn" class="adicionar-btn">Adicionar</button>
                 </fieldset>
 
                 <fieldset class="idiomas">
                     <legend>Idiomas</legend>
 
-                    <button type="button" id="idioma-btn">Adicionar</button>
+                    <button type="button" id="idioma-btn" class="adicionar-btn">Adicionar</button>
                 </fieldset>
 
                 <fieldset class="habilidades">
@@ -120,7 +125,7 @@
                         <input type="text" name="nova-habilidade" id="nova-habilidade">
                     </div>
 
-                    <button type="button" id="nova-hab-btn">Adicionar</button>
+                    <button type="button" id="nova-hab-btn" class="adicionar-btn">Adicionar</button>
 
                     <ul>
                         <li>HTML</li>
