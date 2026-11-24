@@ -2,12 +2,14 @@ const editarBtn = document.getElementById('editar-btn');
 const previaBtn = document.getElementById('previa-btn');
 const novaHabilidade = document.getElementById('nova-habilidade');
 const novaHabBtn = document.getElementById('nova-hab-btn');
+const experienciaBtn = document.getElementById('experiencia-btn');
 
 const areaForm = document.querySelector('.area-formulario');
 const areaPrevia = document.querySelector('.area-previa');
 const curriculo = document.querySelector('.curriculo');
 const habilidadesLista = document.querySelector('.habilidades ul');
 const curriculoHabLista = document.querySelector('.curriculo-habilidades ul');
+const camposExperiencia = document.querySelector('.campos-experiencia');
 
 const bolinhasTema = document.querySelectorAll('.seletor-tema input');
 
@@ -61,6 +63,14 @@ novaHabBtn.addEventListener('click', () => {
     novaHabilidade.focus();
 });
 
+experienciaBtn.addEventListener('click', () => {
+    camposExperiencia.classList.remove('escondido');
+    experienciaBtn.classList.add('escondido');
+
+    const expCargo = document.getElementById('exp-cargo');
+    expCargo.focus();
+});
+
 ligarCampo('nome', 'previa-nome');
 ligarCampo('cargo-desejado', 'previa-cargo');
 ligarCampo('email', 'previa-email');
@@ -68,5 +78,8 @@ ligarCampo('telefone', 'previa-telefone');
 ligarCampo('cidade', 'previa-cidade');
 ligarCampo('portfolio', 'previa-portfolio');
 ligarCampo('resumo', 'previa-resumo');
+ligarCampo('exp-cargo', 'previa-exp-cargo');
+ligarCampo('exp-periodo', 'previa-exp-periodo');
+ligarCampo('exp-descricao', 'experiencia-descricao');
 
 
