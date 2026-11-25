@@ -218,6 +218,22 @@ baixarBtn.addEventListener('click', () => {
     window.print();
 });
 
+const parametros = new URLSearchParams(window.location.search);
+const modelo = parametros.get('modelo');
+const tema = parametros.get('tema');
+
+const modelosValidos = ['classico', 'faixa', 'lateral'];
+const temasValidos = ['petroleo', 'mostarda', 'grafite', 'musgo'];
+
+if (modelosValidos.includes(modelo)) {
+    curriculo.dataset.modelo = modelo;
+}
+
+if (temasValidos.includes(tema)) {
+    curriculo.dataset.tema = tema;
+    document.getElementById(tema).checked = true;
+}
+
 ligarCampo('nome', 'previa-nome');
 ligarCampo('cargo-desejado', 'previa-cargo');
 ligarCampo('email', 'previa-email');
@@ -225,5 +241,4 @@ ligarCampo('telefone', 'previa-telefone');
 ligarCampo('cidade', 'previa-cidade');
 ligarCampo('portfolio', 'previa-portfolio');
 ligarCampo('resumo', 'previa-resumo');
-
 
