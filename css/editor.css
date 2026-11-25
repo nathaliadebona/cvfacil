@@ -188,7 +188,9 @@ main {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    padding: 1.75rem 1.5rem;
+    --espaco-y: 1.75rem;
+    --espaco-x: 1.5rem;
+    padding: var(--espaco-y) var(--espaco-x);
     border: 0.0625rem solid var(--cor-borda);
     border-radius: 0.25rem;
     background-color: #fff;
@@ -224,6 +226,10 @@ main {
     color: var(--cor-texto-secundario);
 }
 
+.curriculo-corpo {
+    display: contents;
+}
+
 .curriculo-resumo,
 .curriculo-experiencia,
 .curriculo-formacao,
@@ -244,6 +250,37 @@ main {
     font-family: var(--fonte-titulo);
     font-size: 1.125rem;
     font-style: italic;
+}
+
+.curriculo[data-modelo="faixa"] {
+    gap: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.curriculo[data-modelo="faixa"] .curriculo-corpo {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: var(--espaco-y) var(--espaco-x);
+}
+
+.curriculo[data-modelo="faixa"] .curriculo-cabecalho {
+    padding: var(--espaco-y) var(--espaco-x);
+    border-bottom: none;
+    background-color: var(--cor-tema);
+}
+
+.curriculo[data-modelo="faixa"] .curriculo-cabecalho p:first-child {
+    color: #fff;
+}
+
+.curriculo[data-modelo="faixa"] .curriculo-cabecalho p:last-of-type {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.curriculo[data-modelo="faixa"] .curriculo-cabecalho span {
+    color: rgba(255, 255, 255, 0.85);
 }
 
 .previa-cargo-periodo,
@@ -375,7 +412,8 @@ main {
 
     .curriculo {
         min-height: 47.5rem;
-        padding: 2.75rem 3rem;
+        --espaco-y: 2.75rem;
+        --espaco-x: 3rem;
     }
 
     .curriculo-cabecalho p:first-child {
@@ -422,7 +460,8 @@ main {
         border: none;
         border-radius: 0;
         min-height: 0;
-        padding: 0;
+        --espaco-y: 1rem;
+        --espaco-x: 1rem;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
     }
