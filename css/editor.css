@@ -242,11 +242,11 @@ main {
     line-height: 1.6;
 }
 
-.curriculo-resumo p:first-child,
-.curriculo-experiencia p:first-child,
-.curriculo-formacao p:first-child,
-.curriculo-idiomas p:first-child,
-.curriculo-habilidades p:first-child {
+.curriculo-resumo > p:first-child,
+.curriculo-experiencia > p:first-child,
+.curriculo-formacao > p:first-child,
+.curriculo-idiomas > p:first-child,
+.curriculo-habilidades > p:first-child {
     font-family: var(--fonte-titulo);
     font-size: 1.125rem;
     font-style: italic;
@@ -322,6 +322,7 @@ main {
 .previa-curso-ano span:last-child {
     font-weight: 400;
     color: var(--cor-texto-secundario);
+    white-space: nowrap;
 }
 
 .curriculo-habilidades ul {
@@ -459,11 +460,11 @@ main {
         font-size: 0.875rem;
     }
 
-    .curriculo-resumo p:first-child,
-    .curriculo-experiencia p:first-child,
-    .curriculo-formacao p:first-child,
-    .curriculo-idiomas p:first-child,
-    .curriculo-habilidades p:first-child {
+    .curriculo-resumo > p:first-child,
+    .curriculo-experiencia > p:first-child,
+    .curriculo-formacao > p:first-child,
+    .curriculo-idiomas > p:first-child,
+    .curriculo-habilidades > p:first-child {
         font-size: 1.25rem;
     }
 }
