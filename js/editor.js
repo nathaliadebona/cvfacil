@@ -11,6 +11,8 @@ const modeloPreviaFormacao = document.getElementById('modelo-previa-formacao');
 const novoIdioma = document.getElementById('novo-idioma');
 const nivelIdioma = document.getElementById('nivel-idioma');
 const idiomaBtn = document.getElementById('idioma-btn');
+const baixarBtn = document.getElementById('baixar-btn');
+const nomeCurriculo = document.getElementById('nome-curriculo');
 
 const areaForm = document.querySelector('.area-formulario');
 const areaPrevia = document.querySelector('.area-previa');
@@ -209,6 +211,11 @@ idiomaBtn.addEventListener('click', () => {
 
     novoIdioma.value = '';
     novoIdioma.focus();
+});
+
+baixarBtn.addEventListener('click', () => {
+    document.title = nomeCurriculo.value || 'Currículo';
+    window.print();
 });
 
 ligarCampo('nome', 'previa-nome');

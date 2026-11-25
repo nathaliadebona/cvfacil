@@ -403,4 +403,46 @@ main {
     }
 }
 
+@media print {
+    header,
+    footer,
+    .barra-curriculo,
+    .abas,
+    .area-formulario,
+    .previa-topo {
+        display: none !important;
+    }
+
+    .area-previa {
+        display: flex !important;
+        padding: 0;
+    }
+
+    .curriculo {
+        border: none;
+        border-radius: 0;
+        min-height: 0;
+        padding: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    body {
+        background-color: #fff;
+    }
+
+    main {
+        display: block;
+        padding: 0;
+    }
+
+    .previa-experiencia,
+    .previa-formacao,
+    .curriculo-resumo,
+    .curriculo-habilidades,
+    .curriculo-idiomas {
+        break-inside: avoid;
+    }
+}
+
 
