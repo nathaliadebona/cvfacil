@@ -28,6 +28,7 @@ main {
     color: var(--cor-texto);
     background-color: #fff;
     cursor: pointer;
+    transition: border-color 0.2s;
 }
 
 .filtros button.ativo {
@@ -257,5 +258,11 @@ main {
     .modelo-card a {
         padding: 0.6875rem 1rem;
         font-size: 0.9375rem;
+    }
+}
+
+@media (hover: hover) {
+    .filtros button:not(.ativo):hover {
+        border-color: var(--cor-texto-secundario);
     }
 }

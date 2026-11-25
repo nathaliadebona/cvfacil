@@ -124,13 +124,16 @@ main {
     color: var(--cor-texto);
     background-color: transparent;
     cursor: pointer;
+    transition: background-color 0.2s;
 }
 
 .apagar-btn {
     border: none;
+    border-radius: 0.5rem;
     color: #9B2C2C;
     background-color: transparent;
     cursor: pointer;
+    transition: background-color 0.2s;
 }
 
 @media (min-width: 64rem) {
@@ -225,5 +228,15 @@ main {
     .curriculo-novo {
         justify-content: center;
         min-height: 20.625rem;
+    }
+}
+
+@media (hover: hover) {
+    .duplicar-btn:hover {
+        background-color: color-mix(in srgb, var(--cor-texto) 6%, transparent);
+    }
+
+    .apagar-btn:hover {
+        background-color: color-mix(in srgb, #9B2C2C 10%, transparent);
     }
 }
