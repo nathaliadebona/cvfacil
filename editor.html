@@ -118,7 +118,26 @@
                 <fieldset class="idiomas">
                     <legend>Idiomas</legend>
 
+                    <div class="campo">
+                        <label for="novo-idioma">Idioma</label>
+                        <input type="text" name="novo-idioma" id="novo-idioma" placeholder="Inglês">
+                    </div>
+
+                    <div class="campo">
+                        <label for="nivel-idioma">Nível</label>
+                        <select name="nivel-idioma" id="nivel-idioma">
+                            <option value="básico">Básico</option>
+                            <option value="intermediário">Intermediário</option>
+                            <option value="avançado">Avançado</option>
+                            <option value="fluente">Fluente</option>
+                        </select>
+                    </div>
+
                     <button type="button" id="idioma-btn" class="adicionar-btn">Adicionar</button>
+
+                    <ul>
+                        <li>Inglês (intermediário)</li>
+                    </ul>
                 </fieldset>
 
                 <fieldset class="habilidades">

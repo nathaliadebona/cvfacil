@@ -113,13 +113,15 @@ main {
     cursor: pointer;
 }
 
-.habilidades ul {
+.habilidades ul,
+.idiomas ul {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
 }
 
-.habilidades li {
+.habilidades li,
+.idiomas li {
     padding: 0.3125rem 0.75rem;
     border-radius: 999px;
     font-size: 0.8125rem;

@@ -8,6 +8,9 @@ const modeloPreviaExp = document.getElementById('modelo-previa-experiencia');
 const formacaoBtn = document.getElementById('formacao-btn');
 const modeloFormacao = document.getElementById('modelo-formacao');
 const modeloPreviaFormacao = document.getElementById('modelo-previa-formacao');
+const novoIdioma = document.getElementById('novo-idioma');
+const nivelIdioma = document.getElementById('nivel-idioma');
+const idiomaBtn = document.getElementById('idioma-btn');
 
 const areaForm = document.querySelector('.area-formulario');
 const areaPrevia = document.querySelector('.area-previa');
@@ -18,6 +21,8 @@ const listaExperiencias = document.querySelector('.lista-experiencias');
 const curriculoExperiencia = document.querySelector('.curriculo-experiencia');
 const listaFormacao = document.querySelector('.lista-formacoes');
 const curriculoFormacao = document.querySelector('.curriculo-formacao');
+const listaIdiomas = document.querySelector('.idiomas ul');
+const curriculoIdiomas = document.querySelector('.curriculo-idiomas ul');
 
 const bolinhasTema = document.querySelectorAll('.seletor-tema input');
 
@@ -182,6 +187,28 @@ formacaoBtn.addEventListener('click', () => {
     listaFormacao.appendChild(grupo);
     curriculoFormacao.appendChild(grupoPrevia);
     campoCurso.focus();
+});
+
+idiomaBtn.addEventListener('click', () => {
+    const idioma = novoIdioma.value.trim();
+    const nivel = nivelIdioma.value;
+
+    if (idioma === '') {
+        return;
+    }
+
+    const texto = `${idioma} (${nivel})`;
+
+    const itemFormulario = document.createElement('li');
+    itemFormulario.textContent = texto;
+    listaIdiomas.appendChild(itemFormulario);
+
+    const itemCurriculo = document.createElement('li');
+    itemCurriculo.textContent = texto;
+    curriculoIdiomas.appendChild(itemCurriculo);
+
+    novoIdioma.value = '';
+    novoIdioma.focus();
 });
 
 ligarCampo('nome', 'previa-nome');
