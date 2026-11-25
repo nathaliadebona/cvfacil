@@ -449,7 +449,11 @@ main {
     }
 
     .curriculo-cabecalho span {
-        font-size: 0.8125rem;
+        font-size: 0.875rem;
+    }
+
+    .curriculo-cabecalho p:last-of-type {
+        font-size: 1.0625rem;
     }
 
     .curriculo-resumo,
@@ -466,6 +470,14 @@ main {
     .curriculo-idiomas > p:first-child,
     .curriculo-habilidades > p:first-child {
         font-size: 1.25rem;
+    }
+
+    .curriculo[data-modelo="lateral"] .curriculo-cabecalho p:first-child {
+        font-size: 1.625rem;
+    }
+
+    .curriculo[data-modelo="lateral"] .curriculo-cabecalho p:last-of-type {
+        font-size: 1rem;
     }
 }
 
