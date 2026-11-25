@@ -291,6 +291,18 @@ main {
     gap: 0.125rem;
 }
 
+.remover-btn {
+    align-self: flex-start;
+    height: 2.5rem;
+    padding: 0 1rem;
+    border: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #9B2C2C;
+    background-color: transparent;
+    cursor: pointer;
+}
+
 @media (min-width: 64rem) {
     main {
         display: grid;

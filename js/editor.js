@@ -107,6 +107,19 @@ experienciaBtn.addEventListener('click', () => {
     ligar(campoPeriodo, previaPeriodo);
     ligar(campoDescricao, previaDescricao);
 
+    const grupoExperiencia = grupo.querySelector('.grupo-experiencia');
+    const previaExperiencia = grupoPrevia.querySelector('.previa-experiencia');
+    const removerBtn = grupo.querySelector('.remover-btn');
+
+    removerBtn.addEventListener('click', () => {
+        grupoExperiencia.remove();
+        previaExperiencia.remove();
+
+        if (curriculoExperiencia.querySelector('.previa-experiencia') === null) {
+            curriculoExperiencia.classList.add('escondido');
+        }
+    });
+
     listaExperiencias.appendChild(grupo);
     curriculoExperiencia.appendChild(grupoPrevia);
     campoCargo.focus();
