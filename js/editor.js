@@ -4,6 +4,7 @@ const novaHabilidade = document.getElementById('nova-habilidade');
 const novaHabBtn = document.getElementById('nova-hab-btn');
 const experienciaBtn = document.getElementById('experiencia-btn');
 const modeloExperiencia = document.getElementById('modelo-experiencia');
+const modeloPreviaExp = document.getElementById('modelo-previa-experiencia');
 
 const areaForm = document.querySelector('.area-formulario');
 const areaPrevia = document.querySelector('.area-previa');
@@ -11,6 +12,7 @@ const curriculo = document.querySelector('.curriculo');
 const habilidadesLista = document.querySelector('.habilidades ul');
 const curriculoHabLista = document.querySelector('.curriculo-habilidades ul');
 const listaExperiencias = document.querySelector('.lista-experiencias');
+const curriculoExperiencia = document.querySelector('.curriculo-experiencia');
 
 const bolinhasTema = document.querySelectorAll('.seletor-tema input');
 
@@ -73,6 +75,8 @@ novaHabBtn.addEventListener('click', () => {
 experienciaBtn.addEventListener('click', () => {
     totalExperiencias++;
 
+    curriculoExperiencia.classList.remove('escondido');
+
     const grupo = modeloExperiencia.content.cloneNode(true);
 
     const campoCargo = grupo.querySelector('.campo-cargo');
@@ -93,7 +97,18 @@ experienciaBtn.addEventListener('click', () => {
     campoDescricao.id = 'exp-descricao-' + totalExperiencias;
     labelDescricao.htmlFor = campoDescricao.id;
 
+    const grupoPrevia = modeloPreviaExp.content.cloneNode(true);
+
+    const previaCargo = grupoPrevia.querySelector('.previa-cargo');
+    const previaPeriodo = grupoPrevia.querySelector('.previa-periodo');
+    const previaDescricao = grupoPrevia.querySelector('.previa-descricao');
+
+    ligar(campoCargo, previaCargo);
+    ligar(campoPeriodo, previaPeriodo);
+    ligar(campoDescricao, previaDescricao);
+
     listaExperiencias.appendChild(grupo);
+    curriculoExperiencia.appendChild(grupoPrevia);
     campoCargo.focus();
 });
 
