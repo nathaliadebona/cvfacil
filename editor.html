@@ -110,6 +110,8 @@
                 <fieldset class="formacao">
                     <legend>Formação</legend>
 
+                    <div class="lista-formacoes"></div>
+
                     <button type="button" id="formacao-btn" class="adicionar-btn">Adicionar</button>
                 </fieldset>
 
@@ -153,6 +155,27 @@
                     <div class="campo">
                         <label>Descrição</label>
                         <textarea name="exp-descricao" class="campo-descricao" placeholder="Criei layouts para redes sociais e organizei os materiais da equipe."></textarea>
+                    </div>
+
+                    <button type="button" class="remover-btn">Remover</button>
+                </div>
+            </template>
+
+            <template id="modelo-formacao">
+                <div class="grupo-formacao">
+                    <div class="campo">
+                        <label>Curso</label>
+                        <input type="text" class="campo-curso" placeholder="Técnico em design gráfico">
+                    </div>
+
+                    <div class="campo">
+                        <label>Ano</label>
+                        <input type="text" class="campo-ano" placeholder="2023">
+                    </div>
+
+                    <div class="campo">
+                        <label>Instituição</label>
+                        <input type="text" class="campo-instituicao" placeholder="Escola Exemplo">
                     </div>
 
                     <button type="button" class="remover-btn">Remover</button>
@@ -202,10 +225,8 @@
                     <p>Experiência</p>
                 </div>
 
-                <div class="curriculo-formacao">
+                <div class="curriculo-formacao escondido">
                     <p>Formação</p>
-                    <p id="formacao-curso">Técnico em design gráfico <span>2023</span></p>
-                    <p id="formacao-instituicao">Escola Exemplo</p>
                 </div>
 
                 <div class="curriculo-idiomas">
@@ -232,6 +253,13 @@
                 <div class="previa-experiencia">
                     <p class="previa-cargo-periodo"><span class="previa-cargo">Assistente de design</span> <span class="previa-periodo">2024 - 2026</span></p>
                     <p class="previa-descricao">Criei layouts para redes sociais e organizei os materiais da equipe.</p>
+                </div>
+            </template>
+
+            <template id="modelo-previa-formacao">
+                <div class="previa-formacao">
+                    <p class="previa-curso-ano"><span class="previa-curso">Técnico em design gráfico</span> <span class="previa-ano">2023</span></p>
+                    <p class="previa-instituicao">Escola Exemplo</p>
                 </div>
             </template>
         </section>

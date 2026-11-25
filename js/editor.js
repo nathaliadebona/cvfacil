@@ -5,6 +5,9 @@ const novaHabBtn = document.getElementById('nova-hab-btn');
 const experienciaBtn = document.getElementById('experiencia-btn');
 const modeloExperiencia = document.getElementById('modelo-experiencia');
 const modeloPreviaExp = document.getElementById('modelo-previa-experiencia');
+const formacaoBtn = document.getElementById('formacao-btn');
+const modeloFormacao = document.getElementById('modelo-formacao');
+const modeloPreviaFormacao = document.getElementById('modelo-previa-formacao');
 
 const areaForm = document.querySelector('.area-formulario');
 const areaPrevia = document.querySelector('.area-previa');
@@ -13,10 +16,13 @@ const habilidadesLista = document.querySelector('.habilidades ul');
 const curriculoHabLista = document.querySelector('.curriculo-habilidades ul');
 const listaExperiencias = document.querySelector('.lista-experiencias');
 const curriculoExperiencia = document.querySelector('.curriculo-experiencia');
+const listaFormacao = document.querySelector('.lista-formacoes');
+const curriculoFormacao = document.querySelector('.curriculo-formacao');
 
 const bolinhasTema = document.querySelectorAll('.seletor-tema input');
 
 let totalExperiencias = 0;
+let totalFormacoes = 0;
 
 function mostrarArea(areaAtiva, areaInativa, botaoAtivo, botaoInativo) {
     areaInativa.classList.add('aba-inativa');
@@ -123,6 +129,59 @@ experienciaBtn.addEventListener('click', () => {
     listaExperiencias.appendChild(grupo);
     curriculoExperiencia.appendChild(grupoPrevia);
     campoCargo.focus();
+});
+
+formacaoBtn.addEventListener('click', () => {
+    totalFormacoes++;
+
+    curriculoFormacao.classList.remove('escondido');
+
+    const grupo = modeloFormacao.content.cloneNode(true);
+
+    const campoCurso = grupo.querySelector('.campo-curso');
+    const labelCurso = campoCurso.previousElementSibling;
+
+    campoCurso.id = 'form-curso-' + totalFormacoes;
+    labelCurso.htmlFor = campoCurso.id;
+
+    const campoAno = grupo.querySelector('.campo-ano');
+    const labelAno = campoAno.previousElementSibling;
+    
+    campoAno.id = 'form-ano-' + totalFormacoes;
+    labelAno.htmlFor = campoAno.id;
+
+    const campoInstituicao = grupo.querySelector('.campo-instituicao');
+    const labelInstituicao = campoInstituicao.previousElementSibling;
+
+    campoInstituicao.id = 'form-instituicao-' + totalFormacoes;
+    labelInstituicao.htmlFor = campoInstituicao.id;
+
+    const grupoPrevia = modeloPreviaFormacao.content.cloneNode(true);
+
+    const previaCurso = grupoPrevia.querySelector('.previa-curso');
+    const previaAno = grupoPrevia.querySelector('.previa-ano');
+    const previaInstituicao = grupoPrevia.querySelector('.previa-instituicao');
+
+    ligar(campoCurso, previaCurso);
+    ligar(campoAno, previaAno);
+    ligar(campoInstituicao, previaInstituicao);
+
+    const grupoFormacao = grupo.querySelector('.grupo-formacao');
+    const previaFormacao = grupoPrevia.querySelector('.previa-formacao');
+    const removerBtn = grupo.querySelector('.remover-btn');
+
+    removerBtn.addEventListener('click', () => {
+        grupoFormacao.remove();
+        previaFormacao.remove();
+
+        if (curriculoFormacao.querySelector('.previa-formacao') === null) {
+            curriculoFormacao.classList.add('escondido');
+        }
+    });
+
+    listaFormacao.appendChild(grupo);
+    curriculoFormacao.appendChild(grupoPrevia);
+    campoCurso.focus();
 });
 
 ligarCampo('nome', 'previa-nome');

@@ -245,7 +245,7 @@ main {
 }
 
 .previa-cargo-periodo,
-#formacao-curso {
+.previa-curso-ano {
     display: flex;
     justify-content: space-between;
     gap: 0.5rem;
@@ -253,7 +253,7 @@ main {
 }
 
 .previa-cargo-periodo span:last-child,
-#formacao-curso span:last-child {
+.previa-curso-ano span:last-child {
     font-weight: 400;
     color: var(--cor-texto-secundario);
 }
@@ -273,19 +273,22 @@ main {
 }
 
 .lista-experiencias,
+.lista-formacoes,
 .grupo-experiencia {
     display: flex;
     flex-direction: column;
     gap: 0.875rem;
 }
 
-.grupo-experiencia {
+.grupo-experiencia,
+.grupo-formacao {
     padding: 1rem;
     border: 0.0625rem solid var(--cor-borda);
     border-radius: 0.5rem;
 }
 
-.previa-experiencia {
+.previa-experiencia,
+.previa-formacao {
     display: flex;
     flex-direction: column;
     gap: 0.125rem;
