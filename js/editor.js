@@ -31,6 +31,36 @@ const bolinhasTema = document.querySelectorAll('.seletor-tema input');
 let totalExperiencias = 0;
 let totalFormacoes = 0;
 
+const configExperiencia = {
+    modelo: modeloExperiencia,
+    modeloPrevia: modeloPreviaExp,
+    lista: listaExperiencias,
+    areaPrevia: curriculoExperiencia,
+    prefixo: 'exp',
+    seletorPrevia: '.previa-experiencia',
+    total: 0,
+    campos: [
+        { campo: '.campo-cargo', previa: '.previa-cargo' },
+        { campo: '.campo-periodo', previa: '.previa-periodo' },
+        { campo: '.campo-descricao', previa: '.previa-descricao' }
+    ]
+};
+
+const configFormacao = {
+    modelo: modeloFormacao,
+    modeloPrevia: modeloPreviaFormacao,
+    lista: listaFormacao,
+    areaPrevia: curriculoFormacao,
+    prefixo: 'formacao',
+    seletorPrevia: '.previa-formacao',
+    total: 0,
+    campos: [
+        { campo: '.campo-curso', previa: '.previa-curso' },
+        { campo: '.campo-ano', previa: '.previa-ano' },
+        { campo: '.campo-instituicao', previa: '.previa-instituicao'}
+    ]
+};
+
 function mostrarArea(areaAtiva, areaInativa, botaoAtivo, botaoInativo) {
     areaInativa.classList.add('aba-inativa');
     areaAtiva.classList.remove('aba-inativa');
@@ -50,6 +80,42 @@ function ligarCampo(idCampo, idPrevia) {
     const previa = document.getElementById(idPrevia);
 
     ligar(campo, previa);
+}
+
+function adicionarGrupo(config) {
+    config.total++;
+    config.areaPrevia.classList.remove('escondido');
+
+    const grupo = config.modelo.content.cloneNode(true);
+    const grupoPrevia = config.modeloPrevia.content.cloneNode(true);
+
+    config.campos.forEach((item) => {
+        const campo = grupo.querySelector(item.campo);
+        const label = campo.previousElementSibling;
+        const previa = grupoPrevia.querySelector(item.previa);
+
+        campo.id = config.prefixo + '-' + campo.className + '-' + config.total;
+        label.htmlFor = campo.id;
+        ligar(campo, previa);
+    });
+
+    const grupoFormulario = grupo.firstElementChild;
+    const previaGrupo = grupoPrevia.firstElementChild;
+    const removerBtn = grupo.querySelector('.remover-btn');
+
+    removerBtn.addEventListener('click', () => {
+        grupoFormulario.remove();
+        previaGrupo.remove();
+
+        if (config.areaPrevia.querySelector(config.seletorPrevia) === null) {
+            config.areaPrevia.classList.add('escondido');
+        }
+    });
+
+    config.lista.appendChild(grupo);
+    config.areaPrevia.appendChild(grupoPrevia);
+
+    grupoFormulario.querySelector(config.campos[0].campo).focus();
 }
 
 bolinhasTema.forEach((bolinha) => {
@@ -86,109 +152,11 @@ novaHabBtn.addEventListener('click', () => {
 });
 
 experienciaBtn.addEventListener('click', () => {
-    totalExperiencias++;
-
-    curriculoExperiencia.classList.remove('escondido');
-
-    const grupo = modeloExperiencia.content.cloneNode(true);
-
-    const campoCargo = grupo.querySelector('.campo-cargo');
-    const labelCargo = campoCargo.previousElementSibling;
-
-    campoCargo.id = 'exp-cargo-' + totalExperiencias;
-    labelCargo.htmlFor = campoCargo.id;
-
-    const campoPeriodo = grupo.querySelector('.campo-periodo');
-    const labelPeriodo = campoPeriodo.previousElementSibling;
-
-    campoPeriodo.id = 'exp-periodo-' + totalExperiencias;
-    labelPeriodo.htmlFor = campoPeriodo.id;
-
-    const campoDescricao = grupo.querySelector('.campo-descricao');
-    const labelDescricao = campoDescricao.previousElementSibling;
-
-    campoDescricao.id = 'exp-descricao-' + totalExperiencias;
-    labelDescricao.htmlFor = campoDescricao.id;
-
-    const grupoPrevia = modeloPreviaExp.content.cloneNode(true);
-
-    const previaCargo = grupoPrevia.querySelector('.previa-cargo');
-    const previaPeriodo = grupoPrevia.querySelector('.previa-periodo');
-    const previaDescricao = grupoPrevia.querySelector('.previa-descricao');
-
-    ligar(campoCargo, previaCargo);
-    ligar(campoPeriodo, previaPeriodo);
-    ligar(campoDescricao, previaDescricao);
-
-    const grupoExperiencia = grupo.querySelector('.grupo-experiencia');
-    const previaExperiencia = grupoPrevia.querySelector('.previa-experiencia');
-    const removerBtn = grupo.querySelector('.remover-btn');
-
-    removerBtn.addEventListener('click', () => {
-        grupoExperiencia.remove();
-        previaExperiencia.remove();
-
-        if (curriculoExperiencia.querySelector('.previa-experiencia') === null) {
-            curriculoExperiencia.classList.add('escondido');
-        }
-    });
-
-    listaExperiencias.appendChild(grupo);
-    curriculoExperiencia.appendChild(grupoPrevia);
-    campoCargo.focus();
+    adicionarGrupo(configExperiencia);
 });
 
 formacaoBtn.addEventListener('click', () => {
-    totalFormacoes++;
-
-    curriculoFormacao.classList.remove('escondido');
-
-    const grupo = modeloFormacao.content.cloneNode(true);
-
-    const campoCurso = grupo.querySelector('.campo-curso');
-    const labelCurso = campoCurso.previousElementSibling;
-
-    campoCurso.id = 'form-curso-' + totalFormacoes;
-    labelCurso.htmlFor = campoCurso.id;
-
-    const campoAno = grupo.querySelector('.campo-ano');
-    const labelAno = campoAno.previousElementSibling;
-    
-    campoAno.id = 'form-ano-' + totalFormacoes;
-    labelAno.htmlFor = campoAno.id;
-
-    const campoInstituicao = grupo.querySelector('.campo-instituicao');
-    const labelInstituicao = campoInstituicao.previousElementSibling;
-
-    campoInstituicao.id = 'form-instituicao-' + totalFormacoes;
-    labelInstituicao.htmlFor = campoInstituicao.id;
-
-    const grupoPrevia = modeloPreviaFormacao.content.cloneNode(true);
-
-    const previaCurso = grupoPrevia.querySelector('.previa-curso');
-    const previaAno = grupoPrevia.querySelector('.previa-ano');
-    const previaInstituicao = grupoPrevia.querySelector('.previa-instituicao');
-
-    ligar(campoCurso, previaCurso);
-    ligar(campoAno, previaAno);
-    ligar(campoInstituicao, previaInstituicao);
-
-    const grupoFormacao = grupo.querySelector('.grupo-formacao');
-    const previaFormacao = grupoPrevia.querySelector('.previa-formacao');
-    const removerBtn = grupo.querySelector('.remover-btn');
-
-    removerBtn.addEventListener('click', () => {
-        grupoFormacao.remove();
-        previaFormacao.remove();
-
-        if (curriculoFormacao.querySelector('.previa-formacao') === null) {
-            curriculoFormacao.classList.add('escondido');
-        }
-    });
-
-    listaFormacao.appendChild(grupo);
-    curriculoFormacao.appendChild(grupoPrevia);
-    campoCurso.focus();
+    adicionarGrupo(configFormacao);
 });
 
 idiomaBtn.addEventListener('click', () => {
