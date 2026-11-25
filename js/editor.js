@@ -24,13 +24,17 @@ function mostrarArea(areaAtiva, areaInativa, botaoAtivo, botaoInativo) {
     botaoInativo.classList.remove('ativo');
 }
 
+function ligar(campo, previa) {
+    campo.addEventListener('input', () => {
+        previa.textContent = campo.value || campo.placeholder;
+    });
+}
+
 function ligarCampo(idCampo, idPrevia) {
     const campo = document.getElementById(idCampo);
     const previa = document.getElementById(idPrevia);
 
-    campo.addEventListener('input', () => {
-        previa.textContent = campo.value || campo.placeholder;
-    });
+    ligar(campo, previa);
 }
 
 bolinhasTema.forEach((bolinha) => {

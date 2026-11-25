@@ -244,7 +244,7 @@ main {
     font-style: italic;
 }
 
-#experiencia-cargo,
+.previa-cargo-periodo,
 #formacao-curso {
     display: flex;
     justify-content: space-between;
@@ -252,7 +252,7 @@ main {
     font-weight: 500;
 }
 
-#experiencia-cargo span:last-child,
+.previa-cargo-periodo span:last-child,
 #formacao-curso span:last-child {
     font-weight: 400;
     color: var(--cor-texto-secundario);
@@ -283,6 +283,12 @@ main {
     padding: 1rem;
     border: 0.0625rem solid var(--cor-borda);
     border-radius: 0.5rem;
+}
+
+.previa-experiencia {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
 }
 
 @media (min-width: 64rem) {
