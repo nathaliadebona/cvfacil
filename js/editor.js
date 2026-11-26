@@ -144,6 +144,35 @@ function adicionarItem(texto, listaForm, listaPrevia) {
     listaPrevia.parentElement.classList.remove('escondido');
 }
 
+function adicionarHabilidade() {
+    const texto = novaHabilidade.value.trim();
+
+    if (texto === '') {
+        return;
+    }
+
+    adicionarItem(texto, habilidadesLista, curriculoHabLista);
+
+    novaHabilidade.value = '';
+    novaHabilidade.focus();
+}
+
+function adicionarIdioma() {
+    const idioma = novoIdioma.value.trim();
+    const nivel = nivelIdioma.value;
+
+    if (idioma === '') {
+        return;
+    }
+
+    const texto = `${idioma} (${nivel})`;
+
+    adicionarItem(texto, listaIdiomas, curriculoIdiomas);
+
+    novoIdioma.value = '';
+    novoIdioma.focus();
+}
+
 bolinhasTema.forEach((bolinha) => {
     bolinha.addEventListener('change', () => {
         curriculo.dataset.tema = bolinha.dataset.tema;
@@ -158,19 +187,6 @@ previaBtn.addEventListener('click', () => {
     mostrarArea(areaPrevia, areaForm, previaBtn, editarBtn);
 });
 
-novaHabBtn.addEventListener('click', () => {
-    const texto = novaHabilidade.value.trim();
-
-    if (texto === '') {
-        return;
-    }
-
-    adicionarItem(texto, habilidadesLista, curriculoHabLista);
-
-    novaHabilidade.value = '';
-    novaHabilidade.focus();
-});
-
 experienciaBtn.addEventListener('click', () => {
     adicionarGrupo(configExperiencia);
 });
@@ -179,25 +195,27 @@ formacaoBtn.addEventListener('click', () => {
     adicionarGrupo(configFormacao);
 });
 
-idiomaBtn.addEventListener('click', () => {
-    const idioma = novoIdioma.value.trim();
-    const nivel = nivelIdioma.value;
-
-    if (idioma === '') {
-        return;
-    }
-
-    const texto = `${idioma} (${nivel})`;
-
-    adicionarItem(texto, listaIdiomas, curriculoIdiomas);
-
-    novoIdioma.value = '';
-    novoIdioma.focus();
-});
-
 baixarBtn.addEventListener('click', () => {
     document.title = nomeCurriculo.value || 'Currículo';
     window.print();
+});
+
+novaHabBtn.addEventListener('click', adicionarHabilidade);
+
+novaHabilidade.addEventListener('keydown', (evento) => {
+    if (evento.key === 'Enter') {
+        evento.preventDefault();
+        adicionarHabilidade();
+    }
+});
+
+idiomaBtn.addEventListener('click', adicionarIdioma);
+
+novoIdioma.addEventListener('keydown', (evento) => {
+    if (evento.key === 'Enter') {
+        evento.preventDefault();
+        adicionarIdioma();
+    }
 });
 
 const parametros = new URLSearchParams(window.location.search);
