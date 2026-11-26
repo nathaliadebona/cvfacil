@@ -28,9 +28,6 @@ const curriculoIdiomas = document.querySelector('.curriculo-idiomas ul');
 
 const bolinhasTema = document.querySelectorAll('.seletor-tema input');
 
-let totalExperiencias = 0;
-let totalFormacoes = 0;
-
 const configExperiencia = {
     modelo: modeloExperiencia,
     modeloPrevia: modeloPreviaExp,
@@ -118,6 +115,35 @@ function adicionarGrupo(config) {
     grupoFormulario.querySelector(config.campos[0].campo).focus();
 }
 
+function adicionarItem(texto, listaForm, listaPrevia) {
+    const itemFormulario = document.createElement('li');
+    itemFormulario.textContent = texto;
+
+    const itemPrevia = document.createElement('li');
+    itemPrevia.textContent = texto;
+
+    const removerBtn = document.createElement('button');
+    removerBtn.type = 'button';
+    removerBtn.className = 'remover-item';
+    removerBtn.textContent = '×';
+    removerBtn.setAttribute('aria-label', 'Remover ' + texto);
+
+    removerBtn.addEventListener('click', () => {
+        itemFormulario.remove();
+        itemPrevia.remove();
+
+        if (listaPrevia.children.length === 0) {
+            listaPrevia.parentElement.classList.add('escondido');
+        }
+    });
+
+    itemFormulario.appendChild(removerBtn);
+    listaForm.appendChild(itemFormulario);
+    listaPrevia.appendChild(itemPrevia);
+
+    listaPrevia.parentElement.classList.remove('escondido');
+}
+
 bolinhasTema.forEach((bolinha) => {
     bolinha.addEventListener('change', () => {
         curriculo.dataset.tema = bolinha.dataset.tema;
@@ -139,13 +165,7 @@ novaHabBtn.addEventListener('click', () => {
         return;
     }
 
-    const itemFormulario = document.createElement('li');
-    itemFormulario.textContent = texto;
-    habilidadesLista.appendChild(itemFormulario);
-
-    const itemCurriculo = document.createElement('li');
-    itemCurriculo.textContent = texto;
-    curriculoHabLista.appendChild(itemCurriculo);
+    adicionarItem(texto, habilidadesLista, curriculoHabLista);
 
     novaHabilidade.value = '';
     novaHabilidade.focus();
@@ -169,13 +189,7 @@ idiomaBtn.addEventListener('click', () => {
 
     const texto = `${idioma} (${nivel})`;
 
-    const itemFormulario = document.createElement('li');
-    itemFormulario.textContent = texto;
-    listaIdiomas.appendChild(itemFormulario);
-
-    const itemCurriculo = document.createElement('li');
-    itemCurriculo.textContent = texto;
-    curriculoIdiomas.appendChild(itemCurriculo);
+    adicionarItem(texto, listaIdiomas, curriculoIdiomas);
 
     novoIdioma.value = '';
     novoIdioma.focus();
@@ -202,6 +216,11 @@ if (temasValidos.includes(tema)) {
     document.getElementById(tema).checked = true;
 }
 
+['HTML', 'CSS', 'JavaScript', 'Git'].forEach((habilidade) => {
+    adicionarItem(habilidade, habilidadesLista, curriculoHabLista);
+});
+
+adicionarItem('Inglês (intermediário)', listaIdiomas, curriculoIdiomas);
 ligarCampo('nome', 'previa-nome');
 ligarCampo('cargo-desejado', 'previa-cargo');
 ligarCampo('email', 'previa-email');
