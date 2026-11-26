@@ -65,6 +65,22 @@ app.get('/api/curriculos/:id', (req, res) => {
     res.json(curriculo);
 });
 
+app.delete('/api/curriculos/:id', (req, res) => {
+    const id = Number(req.params.id);
+
+    if (!Number.isInteger(id)) {
+        return res.status(400).json({ erro: 'Id inválido' });
+    }
+
+    const resultado = db.prepare('DELETE FROM curriculos WHERE id = ?').run(id);
+
+    if (resultado.changes === 0) {
+        return res.status(404).json({ erro: 'Currículo não encontrado' });
+    }
+
+    res.json({ ok: true });
+});
+
 app.listen(PORTA, () => {
     console.log(`Servidor rodando em http://localhost:${PORTA}`);
 });
