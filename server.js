@@ -15,20 +15,32 @@ app.get('/api/ping', (req, res) => {
 const modelosValidos = ['classico', 'faixa', 'lateral'];
 const temasValidos = ['petroleo', 'mostarda', 'grafite', 'musgo'];
 
-app.post('/api/curriculos', (req, res) => {
-    const { nome, modelo, tema, dados } = req.body;
+function validarCurriculo(corpo) {
+    const { nome, modelo, tema, dados } = corpo;
 
     if (typeof nome !== 'string' || nome.trim() === '') {
-        return res.status(400).json({ erro: 'Nome inválido' });
+        return 'Nome inválido';
     }
 
     if (!modelosValidos.includes(modelo) || !temasValidos.includes(tema)) {
-        return res.status(400).json({ erro: 'Modelo ou tema inválido' });
+        return 'Modelo ou tema inválido';
     }
 
     if (!dados || typeof dados !== 'object') {
-        return res.status(400).json({ erro: 'Dados inválidos' });
+        return 'Dados inválidos';
     }
+
+    return null;
+}
+
+app.post('/api/curriculos', (req, res) => {
+    const erro = validarCurriculo(req.body);
+
+    if (erro) {
+        return res.status(400).json({ erro });
+    }
+
+    const { nome, modelo, tema, dados } = req.body;
 
     const resultado = db.prepare(`
         INSERT INTO curriculos (nome, modelo, tema, dados, atualizado_em)
