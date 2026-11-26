@@ -121,6 +121,33 @@ app.put('/api/curriculos/:id', (req, res) => {
     res.json({ ok: true });
 });
 
+app.post('/api/curriculos/:id/duplicar', (req, res) => {
+    const id = Number(req.params.id);
+
+    if (!Number.isInteger(id)) {
+        return res.status(400).json({ erro: 'Id inválido' });
+    }
+
+    const original = db.prepare('SELECT * FROM curriculos WHERE id = ?').get(id);
+
+    if (!original) {
+        return res.status(404).json({ erro: 'Currículo não encontrado' });
+    }
+
+    const resultado = db.prepare(`
+        INSERT INTO curriculos (nome, modelo, tema, dados, atualizado_em)
+        VALUES (?, ?, ?, ?, ?)
+    `).run(
+        `${original.nome} (cópia)`,
+        original.modelo,
+        original.tema,
+        original.dados,
+        new Date().toISOString()
+    );
+
+    res.status(201).json({ id: resultado.lastInsertRowid });
+});
+
 app.listen(PORTA, () => {
     console.log(`Servidor rodando em http://localhost:${PORTA}`);
 });
