@@ -38,6 +38,33 @@ app.post('/api/curriculos', (req, res) => {
     res.status(201).json({ id: resultado.lastInsertRowid });
 });
 
+app.get('/api/curriculos', (req, res) => {
+    const lista = db.prepare(`
+        SELECT id, nome, modelo, tema, atualizado_em
+        FROM curriculos
+        ORDER BY atualizado_em DESC
+    `).all();
+
+    res.json(lista);
+});
+
+app.get('/api/curriculos/:id', (req, res) => {
+    const id = Number(req.params.id);
+
+    if (!Number.isInteger(id)) {
+        return res.status(400).json({ erro: 'Id inválido' });
+    }
+
+    const curriculo = db.prepare('SELECT * FROM curriculos WHERE id = ?').get(id);
+
+    if (!curriculo) {
+        return res.status(404).json({ erro: 'Currículo não encontrado' });
+    }
+
+    curriculo.dados = JSON.parse(curriculo.dados);
+    res.json(curriculo);
+});
+
 app.listen(PORTA, () => {
     console.log(`Servidor rodando em http://localhost:${PORTA}`);
 });
