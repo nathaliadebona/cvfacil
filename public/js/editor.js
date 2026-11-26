@@ -13,6 +13,7 @@ const nivelIdioma = document.getElementById('nivel-idioma');
 const idiomaBtn = document.getElementById('idioma-btn');
 const baixarBtn = document.getElementById('baixar-btn');
 const nomeCurriculo = document.getElementById('nome-curriculo');
+const salvarBtn = document.getElementById('salvar-btn');
 
 const areaForm = document.querySelector('.area-formulario');
 const areaPrevia = document.querySelector('.area-previa');
@@ -173,6 +174,34 @@ function adicionarIdioma() {
     novoIdioma.focus();
 }
 
+function coletarDados() {
+    return {
+        nome: document.getElementById('nome').value,
+        cargo: document.getElementById('cargo-desejado').value,
+        email: document.getElementById('email').value,
+        telefone: document.getElementById('telefone').value,
+        cidade: document.getElementById('cidade').value,
+        portfolio: document.getElementById('portfolio').value,
+        resumo: document.getElementById('resumo').value,
+        habilidades: Array.from(curriculoHabLista.querySelectorAll('li')).map((item) => item.textContent),
+        idiomas: Array.from(listaIdiomas.querySelectorAll('li')).map((item) => item.textContent),
+        experiencias: Array.from(listaExperiencias.querySelectorAll('.grupo-experiencia')).map((grupo) => {
+            return {
+                cargo: grupo.querySelector('.campo-cargo').value,
+                periodo: grupo.querySelector('.campo-periodo').value,
+                descricao: grupo.querySelector('.campo-descricao').value
+            };
+        }),
+        formacoes: Array.from(listaFormacao.querySelectorAll('.grupo-formacao')).map((grupo) => {
+            return {
+                curso: grupo.querySelector('.campo-curso').value,
+                ano: grupo.querySelector('.campo-ano').value,
+                instituicao: grupo.querySelector('.campo-instituicao').value
+            }
+        })
+    }
+}
+
 bolinhasTema.forEach((bolinha) => {
     bolinha.addEventListener('change', () => {
         curriculo.dataset.tema = bolinha.dataset.tema;
@@ -198,6 +227,34 @@ formacaoBtn.addEventListener('click', () => {
 baixarBtn.addEventListener('click', () => {
     document.title = nomeCurriculo.value || 'Currículo';
     window.print();
+});
+
+salvarBtn.addEventListener('click', async () => {
+    const corpo = {
+        nome: nomeCurriculo.value || 'Currículo sem título',
+        modelo: curriculo.dataset.modelo,
+        tema: curriculo.dataset.tema,
+        dados: coletarDados()
+    };
+
+    const resposta = await fetch('/api/curriculos', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(corpo)
+    });
+
+    const resultado = await resposta.json();
+    
+    
+    if (resposta.ok) {
+        salvarBtn.textContent = 'Salvo!';
+    } else {
+        salvarBtn.textContent = 'Erro ao salvar';
+    }
+
+    setTimeout(() => {
+        salvarBtn.textContent = 'Salvar';
+    }, 2000);
 });
 
 novaHabBtn.addEventListener('click', adicionarHabilidade);
