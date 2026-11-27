@@ -123,6 +123,8 @@ function adicionarGrupo(config) {
     config.areaPrevia.appendChild(grupoPrevia);
 
     grupoFormulario.querySelector(config.campos[0].campo).focus();
+
+    return grupoFormulario;
 }
 
 function adicionarItem(texto, listaForm, listaPrevia) {
@@ -237,6 +239,22 @@ async function carregarCurriculo(id) {
 
     salvo.dados.habilidades.forEach(habilidade => adicionarItem(habilidade, habilidadesLista, curriculoHabLista));
     salvo.dados.idiomas.forEach(idioma => adicionarItem(idioma, listaIdiomas, curriculoIdiomas));
+
+    salvo.dados.experiencias.forEach(experiencia => {
+        const grupo = adicionarGrupo(configExperiencia);
+        const campoCargo = grupo.querySelector('.campo-cargo');
+        const campoPeriodo = grupo.querySelector('.campo-periodo');
+        const campoDescricao = grupo.querySelector('.campo-descricao');
+
+        campoCargo.value = experiencia.cargo;
+        campoCargo.dispatchEvent(new Event('input'));
+
+        campoPeriodo.value = experiencia.periodo;
+        campoPeriodo.dispatchEvent(new Event('input'));
+    
+        campoDescricao.value = experiencia.descricao;
+        campoDescricao.dispatchEvent(new Event('input'));
+    });
 }
 
 bolinhasTema.forEach((bolinha) => {
