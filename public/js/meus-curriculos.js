@@ -13,6 +13,23 @@ function criarCard(curriculo) {
     card.querySelector('.curriculo-info span').textContent = nomesModelo[curriculo.modelo] + ' ' + nomesTema[curriculo.tema];
     card.querySelector('.botao-principal').href = 'editor.html?id=' + curriculo.id;
 
+    const item = card.firstElementChild;
+    const apagarBtn = card.querySelector('.apagar-btn');
+
+    apagarBtn.addEventListener('click', async () => {
+        const confirmou = confirm('Apagar "' + curriculo.nome + '"?');
+
+        if (!confirmou) {
+            return;
+        }
+
+        const resposta = await fetch('/api/curriculos/' + curriculo.id, { method: 'DELETE' });
+
+        if (resposta.ok) {
+            item.remove();
+        }
+    });
+
     itemNovo.before(card);
 }
 
