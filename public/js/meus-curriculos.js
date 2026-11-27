@@ -30,6 +30,16 @@ function criarCard(curriculo) {
         }
     });
 
+    const duplicarBtn = card.querySelector('.duplicar-btn');
+
+    duplicarBtn.addEventListener('click', async () => {
+        const resposta = await fetch('/api/curriculos/' + curriculo.id + '/duplicar', { method: 'POST' });
+
+        if (resposta.ok) {
+            location.reload();
+        }
+    });
+
     itemNovo.before(card);
 }
 
