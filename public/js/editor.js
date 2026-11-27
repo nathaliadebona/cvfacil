@@ -236,6 +236,7 @@ async function carregarCurriculo(id) {
     preencherCampo('resumo', salvo.dados.resumo);
 
     salvo.dados.habilidades.forEach(habilidade => adicionarItem(habilidade, habilidadesLista, curriculoHabLista));
+    salvo.dados.idiomas.forEach(idioma => adicionarItem(idioma, listaIdiomas, curriculoIdiomas));
 }
 
 bolinhasTema.forEach((bolinha) => {
