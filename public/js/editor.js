@@ -255,6 +255,22 @@ async function carregarCurriculo(id) {
         campoDescricao.value = experiencia.descricao;
         campoDescricao.dispatchEvent(new Event('input'));
     });
+
+    salvo.dados.formacoes.forEach(formacao => {
+        const grupo = adicionarGrupo(configFormacao);
+        const campoCurso = grupo.querySelector('.campo-curso');
+        const campoAno = grupo.querySelector('.campo-ano');
+        const campoInstituicao = grupo.querySelector('.campo-instituicao');
+
+        campoCurso.value = formacao.curso;
+        campoCurso.dispatchEvent(new Event('input'));
+
+        campoAno.value = formacao.ano;
+        campoAno.dispatchEvent(new Event('input'));
+
+        campoInstituicao.value = formacao.instituicao;
+        campoInstituicao.dispatchEvent(new Event('input'));
+    });
 }
 
 bolinhasTema.forEach((bolinha) => {
