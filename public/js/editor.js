@@ -59,7 +59,7 @@ const configFormacao = {
     ]
 };
 
-let idAtual = null;
+let idAtual = null; 
 
 function mostrarArea(areaAtiva, areaInativa, botaoAtivo, botaoInativo) {
     areaInativa.classList.add('aba-inativa');
@@ -80,6 +80,13 @@ function ligarCampo(idCampo, idPrevia) {
     const previa = document.getElementById(idPrevia);
 
     ligar(campo, previa);
+}
+
+function preencherCampo(idCampo, valor) {
+    const campo = document.getElementById(idCampo);
+
+    campo.value = valor || '';
+    campo.dispatchEvent(new Event('input'));
 }
 
 function adicionarGrupo(config) {
@@ -204,6 +211,31 @@ function coletarDados() {
     }
 }
 
+async function carregarCurriculo(id) {
+    const resposta = await fetch('/api/curriculos/' + id, { method: 'GET' });
+
+    if (!resposta.ok) {
+        return;
+    }
+
+    const salvo = await resposta.json();
+
+    idAtual = salvo.id;
+
+    nomeCurriculo.value = salvo.nome;
+    curriculo.dataset.modelo = salvo.modelo;
+    curriculo.dataset.tema = salvo.tema;
+    document.getElementById(salvo.tema).checked = true;
+
+    preencherCampo('nome', salvo.dados.nome);
+    preencherCampo('cargo-desejado', salvo.dados.cargo);
+    preencherCampo('email', salvo.dados.email);
+    preencherCampo('telefone', salvo.dados.telefone);
+    preencherCampo('cidade', salvo.dados.cidade);
+    preencherCampo('portfolio', salvo.dados.portfolio);
+    preencherCampo('resumo', salvo.dados.resumo);
+}
+
 bolinhasTema.forEach((bolinha) => {
     bolinha.addEventListener('change', () => {
         curriculo.dataset.tema = bolinha.dataset.tema;
@@ -292,6 +324,7 @@ novoIdioma.addEventListener('keydown', (evento) => {
 const parametros = new URLSearchParams(window.location.search);
 const modelo = parametros.get('modelo');
 const tema = parametros.get('tema');
+const idUrl = parametros.get('id');
 
 const modelosValidos = ['classico', 'faixa', 'lateral'];
 const temasValidos = ['petroleo', 'mostarda', 'grafite', 'musgo'];
@@ -303,6 +336,10 @@ if (modelosValidos.includes(modelo)) {
 if (temasValidos.includes(tema)) {
     curriculo.dataset.tema = tema;
     document.getElementById(tema).checked = true;
+}
+
+if (idUrl !== null && Number.isInteger(Number(idUrl))) {
+    carregarCurriculo(idUrl);
 }
 
 ['HTML', 'CSS', 'JavaScript', 'Git'].forEach((habilidade) => {
