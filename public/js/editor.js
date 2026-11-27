@@ -234,6 +234,8 @@ async function carregarCurriculo(id) {
     preencherCampo('cidade', salvo.dados.cidade);
     preencherCampo('portfolio', salvo.dados.portfolio);
     preencherCampo('resumo', salvo.dados.resumo);
+
+    salvo.dados.habilidades.forEach(habilidade => adicionarItem(habilidade, habilidadesLista, curriculoHabLista));
 }
 
 bolinhasTema.forEach((bolinha) => {
@@ -340,13 +342,14 @@ if (temasValidos.includes(tema)) {
 
 if (idUrl !== null && Number.isInteger(Number(idUrl))) {
     carregarCurriculo(idUrl);
+} else {
+    ['HTML', 'CSS', 'JavaScript', 'Git'].forEach((habilidade) => {
+        adicionarItem(habilidade, habilidadesLista, curriculoHabLista);
+    });
+
+    adicionarItem('Inglês (intermediário)', listaIdiomas, curriculoIdiomas);
 }
 
-['HTML', 'CSS', 'JavaScript', 'Git'].forEach((habilidade) => {
-    adicionarItem(habilidade, habilidadesLista, curriculoHabLista);
-});
-
-adicionarItem('Inglês (intermediário)', listaIdiomas, curriculoIdiomas);
 ligarCampo('nome', 'previa-nome');
 ligarCampo('cargo-desejado', 'previa-cargo');
 ligarCampo('email', 'previa-email');
