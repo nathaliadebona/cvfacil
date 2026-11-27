@@ -59,6 +59,8 @@ const configFormacao = {
     ]
 };
 
+let idAtual = null;
+
 function mostrarArea(areaAtiva, areaInativa, botaoAtivo, botaoInativo) {
     areaInativa.classList.add('aba-inativa');
     areaAtiva.classList.remove('aba-inativa');
@@ -237,16 +239,28 @@ salvarBtn.addEventListener('click', async () => {
         dados: coletarDados()
     };
 
-    const resposta = await fetch('/api/curriculos', {
-        method: 'POST',
+    let metodo = 'POST';
+    let endereco = '/api/curriculos';
+
+    if (idAtual !== null) {
+        metodo = 'PUT';
+        endereco = '/api/curriculos/' + idAtual;
+    }
+
+    const resposta = await fetch(endereco, {
+        method: metodo,
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(corpo)
     });
 
     const resultado = await resposta.json();
-    
-    
+
     if (resposta.ok) {
+        if (idAtual === null) {
+            idAtual = resultado.id;
+            history.replaceState(null, '', '?id=' + idAtual);
+        }
+
         salvarBtn.textContent = 'Salvo!';
     } else {
         salvarBtn.textContent = 'Erro ao salvar';
